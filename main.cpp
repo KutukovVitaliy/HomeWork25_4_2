@@ -9,7 +9,7 @@ extern ram buffer;
 
 int main() {
     std::string command;
-
+    bool exit = false;
     InitRam();
     do{
         std::cout << "Enter the command: ";
@@ -19,8 +19,9 @@ int main() {
         else if(command == "input") GetBuffer();
         else if (command == "display") DisplayBuf();
         else if(command == "sum") Compute();
+        else if(command == "exit") exit = true;
         else std::cout << "Wrong command! Try again!" << std::endl;
 
-    }while(command != "exit");
+    }while(!exit);
     return 0;
 }
